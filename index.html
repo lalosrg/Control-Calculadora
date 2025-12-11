@@ -4,11 +4,27 @@
   <meta charset="UTF-8">
   <title>Calculadora de Pagos</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FAVICON SVG INLINE -->
+  <link rel="icon" href="data:image/svg+xml,
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+    <rect x='8' y='22' width='84' height='56' rx='10' fill='%230ea5e9'/>
+    <rect x='16' y='30' width='68' height='40' rx='8' fill='%2322c55e'/>
+    <circle cx='50' cy='50' r='12' fill='white'/>
+    <text x='50' y='55' font-size='16' text-anchor='middle' fill='%230ea5e9' font-family='Arial'>$</text>
+  </svg>" />
+
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
 <body>
+  <!-- sonido de éxito -->
+  <audio id="successSound" preload="auto">
+    <source src="https://cdn.freesound.org/previews/341/341695_6261194-lq.mp3" type="audio/mpeg">
+  </audio>
+
   <main class="card">
+    <!-- ENCABEZADO -->
     <header class="card-header">
       <div class="title-group">
         <h1>Calculadora de Pagos 💵</h1>
@@ -23,10 +39,11 @@
       </button>
     </header>
 
+    <!-- MONTO -->
     <section class="input-section">
       <div class="label-row">
-        <label for="amountInput">Monto a pagar:</label>
-        <span class="helper-text">Ingrese el monto total de la operación</span>
+        <label for="amountInput">Monto a pagar</label>
+        <span class="helper-text">Ingresá el total de la operación</span>
       </div>
       <input
         id="amountInput"
@@ -38,6 +55,7 @@
       >
     </section>
 
+    <!-- TABLA DE BILLETES -->
     <h2 class="section-title">📜 Billetes</h2>
 
     <div class="table-wrapper">
@@ -52,57 +70,44 @@
         <tbody>
           <tr>
             <td class="denom">$100</td>
-            <td>
-              <input class="qty-input" type="number" min="0" value="0" data-denom="100">
-            </td>
+            <td><input class="qty-input" type="number" min="0" value="0" data-denom="100"></td>
             <td class="amount total-cell">$0</td>
           </tr>
           <tr>
             <td class="denom">$200</td>
-            <td>
-              <input class="qty-input" type="number" min="0" value="0" data-denom="200">
-            </td>
+            <td><input class="qty-input" type="number" min="0" value="0" data-denom="200"></td>
             <td class="amount total-cell">$0</td>
           </tr>
           <tr>
             <td class="denom">$500</td>
-            <td>
-              <input class="qty-input" type="number" min="0" value="0" data-denom="500">
-            </td>
+            <td><input class="qty-input" type="number" min="0" value="0" data-denom="500"></td>
             <td class="amount total-cell">$0</td>
           </tr>
           <tr>
             <td class="denom">$1000</td>
-            <td>
-              <input class="qty-input" type="number" min="0" value="0" data-denom="1000">
-            </td>
+            <td><input class="qty-input" type="number" min="0" value="0" data-denom="1000"></td>
             <td class="amount total-cell">$0</td>
           </tr>
           <tr>
             <td class="denom">$2000</td>
-            <td>
-              <input class="qty-input" type="number" min="0" value="0" data-denom="2000">
-            </td>
+            <td><input class="qty-input" type="number" min="0" value="0" data-denom="2000"></td>
             <td class="amount total-cell">$0</td>
           </tr>
           <tr>
             <td class="denom">$10000</td>
-            <td>
-              <input class="qty-input" type="number" min="0" value="0" data-denom="10000">
-            </td>
+            <td><input class="qty-input" type="number" min="0" value="0" data-denom="10000"></td>
             <td class="amount total-cell">$0</td>
           </tr>
           <tr>
             <td class="denom">$20000</td>
-            <td>
-              <input class="qty-input" type="number" min="0" value="0" data-denom="20000">
-            </td>
+            <td><input class="qty-input" type="number" min="0" value="0" data-denom="20000"></td>
             <td class="amount total-cell">$0</td>
           </tr>
         </tbody>
       </table>
     </div>
 
+    <!-- RESUMEN + ACCIONES -->
     <footer class="footer">
       <div class="summary-grid">
         <div class="summary-item" id="totalBillsCard">
@@ -126,9 +131,12 @@
 
       <div class="action-area">
         <span id="statusText" class="status-text">Esperando datos…</span>
-        <button id="payButton" class="primary-button" type="button">
-          Pagado
-        </button>
+
+        <div class="button-row">
+          <button id="fullscreenBtn" class="secondary-button" type="button">⛶ Pantalla completa</button>
+          <button id="resetButton" class="reset-button" type="button">🔄 Resetear</button>
+          <button id="payButton" class="primary-button" type="button">Pagado</button>
+        </div>
       </div>
     </footer>
   </main>

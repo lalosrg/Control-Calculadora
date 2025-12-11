@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Pagos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="card">
+    <header class="card-header">
+      <div class="title-group">
+        <h1>Calculadora de Pagos 💵</h1>
+        <p class="subtitle">Control rápido de billetes, vuelto y monto restante.</p>
+      </div>
+
+      <button id="themeToggle" class="theme-toggle" type="button">
+        <span class="theme-label">Modo oscuro</span>
+        <div class="toggle-pill">
+          <div class="toggle-knob"></div>
+        </div>
+      </button>
+    </header>
+
+    <section class="input-section">
+      <div class="label-row">
+        <label for="amountInput">Monto a pagar:</label>
+        <span class="helper-text">Ingrese el monto total de la operación</span>
+      </div>
+      <input
+        id="amountInput"
+        class="text-input"
+        type="number"
+        min="0"
+        step="0.01"
+        placeholder="Ej: 150000"
+      >
+    </section>
+
+    <h2 class="section-title">📜 Billetes</h2>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Denominación 💵</th>
+            <th>Cantidad 📊</th>
+            <th>Total 💰</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="denom">$100</td>
+            <td>
+              <input class="qty-input" type="number" min="0" value="0" data-denom="100">
+            </td>
+            <td class="amount total-cell">$0</td>
+          </tr>
+          <tr>
+            <td class="denom">$200</td>
+            <td>
+              <input class="qty-input" type="number" min="0" value="0" data-denom="200">
+            </td>
+            <td class="amount total-cell">$0</td>
+          </tr>
+          <tr>
+            <td class="denom">$500</td>
+            <td>
+              <input class="qty-input" type="number" min="0" value="0" data-denom="500">
+            </td>
+            <td class="amount total-cell">$0</td>
+          </tr>
+          <tr>
+            <td class="denom">$1000</td>
+            <td>
+              <input class="qty-input" type="number" min="0" value="0" data-denom="1000">
+            </td>
+            <td class="amount total-cell">$0</td>
+          </tr>
+          <tr>
+            <td class="denom">$2000</td>
+            <td>
+              <input class="qty-input" type="number" min="0" value="0" data-denom="2000">
+            </td>
+            <td class="amount total-cell">$0</td>
+          </tr>
+          <tr>
+            <td class="denom">$10000</td>
+            <td>
+              <input class="qty-input" type="number" min="0" value="0" data-denom="10000">
+            </td>
+            <td class="amount total-cell">$0</td>
+          </tr>
+          <tr>
+            <td class="denom">$20000</td>
+            <td>
+              <input class="qty-input" type="number" min="0" value="0" data-denom="20000">
+            </td>
+            <td class="amount total-cell">$0</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer class="footer">
+      <div class="summary-grid">
+        <div class="summary-item" id="totalBillsCard">
+          <span class="summary-label">Monto Total de Billetes</span>
+          <div class="summary-main">
+            <span id="totalBills" class="summary-value">$0</span>
+            <span id="totalBillsIcon" class="summary-icon">✔</span>
+          </div>
+        </div>
+
+        <div class="summary-item" id="changeCard">
+          <span class="summary-label">Vuelto</span>
+          <span id="change" class="summary-value">$0</span>
+        </div>
+
+        <div class="summary-item" id="remainingCard">
+          <span class="summary-label">Monto Restante</span>
+          <span id="remaining" class="summary-value">$0</span>
+        </div>
+      </div>
+
+      <div class="action-area">
+        <span id="statusText" class="status-text">Esperando datos…</span>
+        <button id="payButton" class="primary-button" type="button">
+          Pagado
+        </button>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
